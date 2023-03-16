@@ -44,6 +44,10 @@ To complete the front end, back end, and css done by Monday. Ideally be able to 
 |-----------------------|-------------|------------|-------------------------------------|
 | /api/signup           | POST        | POST       | User creates an account             |
 | /api/login            | GET         | GET        | User logs in to said account        |
+| /           | GET        | GET       | List all posts             |
+| /api/upload            | POST         | POST        | User can upload new item if logged in        |
+| /api/edit            | PUT         | PUT        | User can edit one of their uploaded posts |
+| /api/delete            | DELETE         | DELETE        | User can delete an item       |
 ​
 ## Schema: ##
 ```
