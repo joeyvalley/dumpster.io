@@ -1,4 +1,6 @@
-export const productSchema = new mongoose.Schema({
+import mongoose from "mongoose";
+
+const productSchema = new mongoose.Schema({
   title: String,
   author: {
     ref: 'User',
@@ -13,3 +15,5 @@ export const productSchema = new mongoose.Schema({
   },
   dateUploaded: String
 })
+
+export default mongoose.model('Product', productSchema)
