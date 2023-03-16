@@ -52,6 +52,18 @@ To complete the front end, back end, and css done by Monday. Ideally be able to 
     hash: String,
     posts: []
   })
+
+  export const productSchema = new mongoose.Schema({
+    title: String, 
+    author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    description: String,
+    tags: [],
+    time: Date, 
+    location: {
+      lat: Number,
+      long: Number
+    }
+  })
 ```
 
 ## Component Tree:
