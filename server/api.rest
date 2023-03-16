@@ -1,1 +1,10 @@
 @baseUrl = http://localhost:{{$dotenv PORT}}/api
+
+POST {{baseUrl}}/auth/signup
+content-type: application/json
+
+{
+  "username": "1234",
+  "password":"1234"
+}
+###
