@@ -1,0 +1,1 @@
+import User from './server/models/user.js'
