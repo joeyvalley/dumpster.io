@@ -4,6 +4,6 @@ const router = Router()
 
 router.post('/signup', controllers.Signup)
 
-router.post('/signin',controllers.Sign_in)
+router.post('/signin', controllers.Sign_in)
 
 export default router

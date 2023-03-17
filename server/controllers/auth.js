@@ -12,14 +12,14 @@ function getExpiration() {
 }
 
 
-export async function Signup(req,res) { 
+export async function Signup(req, res) {
   let { username, password } = req.body
   let hash = await bcrypt.hash(password, 5)
   let user = await User.create({
     username,
     hash
   })
-  
+
   const data = {
     id: user._id,
     exp: getExpiration()
@@ -28,11 +28,15 @@ export async function Signup(req,res) {
   return res.json(token)
 }
 
-export async function Sign_in(req, res) { 
+export async function Sign_in(req, res) {
   let { username, password } = req.body
   let user = await User.findOne({ username })
-  let hash = user.hash
-
+  if (!user) {
+    return res.status(418).json({
+      message: "User doesn't exist. Please create an account."
+    })
+  }
+  const hash = user.hash
   const result = await bcrypt.compare(password, hash)
   if (result) {
     let data = {
@@ -40,10 +44,11 @@ export async function Sign_in(req, res) {
       exp: getExpiration()
     }
     let token = jwt.sign(data, TOKEN_KEY)
+    console.log("User is logged in.");
     return res.json(token)
-  } else { 
+  } else {
     return res.status(418).json({
-      message: 'you are a tea pot, we only like coffee'
+      message: 'Something went wrong.'
     })
   }
 }
