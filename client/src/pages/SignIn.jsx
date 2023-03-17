@@ -3,13 +3,11 @@ import signIn from '../api/user'
 
 export default function SignIn() {
   const [username, setUsername] = useState()
-  const [email, setEmail] = useState()
   const [password, setPassword] = useState()
-  const [password2, setPassword2] = useState()
 
   async function handleSubmit(e) {
     e.preventDefault()
-    const response = await signIn(username, email, password, password2)
+    const response = await signIn(username, password)
     console.log(response);
   }
   return (
