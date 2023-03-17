@@ -2,7 +2,6 @@ import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import { Router } from "express";
 
-
 import User from '../models/user.js'
 
 const TOKEN_KEY = process.env.TOKEN_KEY
