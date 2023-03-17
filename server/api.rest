@@ -4,7 +4,15 @@ POST {{baseUrl}}/auth/signup
 content-type: application/json
 
 {
-  "username": "1234",
-  "password":"1234"
+  "username": "1236",
+  "password":"1236"
 }
 ###
+
+POST {{baseUrl}}/auth/signin
+content-type: application/json
+
+{
+  "username": "1236",
+  "password":"1236"
+}
