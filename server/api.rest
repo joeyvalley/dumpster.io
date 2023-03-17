@@ -13,6 +13,6 @@ POST {{baseUrl}}/auth/signin
 content-type: application/json
 
 {
-  "username": "1236",
+  "username": "1237",
   "password":"1236"
 }
