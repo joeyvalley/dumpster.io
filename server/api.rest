@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:8080/api
+@baseUrl = http://localhost:{{$dotenv PORT}}/api
 
 POST {{baseUrl}}/auth/signup
 content-type: application/json
@@ -13,6 +13,6 @@ POST {{baseUrl}}/auth/signin
 content-type: application/json
 
 {
-  "username": "1236",
+  "username": "1237",
   "password":"1236"
 }
