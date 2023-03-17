@@ -1,21 +1,37 @@
+import { useState } from "react"
+import signIn from '../api/user'
+
 export default function SignIn() {
+  const [username, setUsername] = useState()
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
+  const [password2, setPassword2] = useState()
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+    const response = await signIn(username, email, password, password2)
+    console.log(response);
+  }
   return (
     <>
-      <div>Sign In</div>
-      <form>
-        <label for="username">Username: </label>
-        <input type="text" id="username" />
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          id="username"
+          placeholder="Username or E-mail"
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
         <br />
-        <label for="email">E-mail: </label>
-        <input type="email" id="email-address" />
+        <input
+          type="password"
+          id="password"
+          placeholder="Password"
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
         <br />
-        <label for="password">Password: </label>
-        <input type="password" id="password" />
-        <br />
-        <label for="password-confirm">Confirm Password: </label>
-        <input type="password" id="password-confirm" />
-        <br />
-        <input type="button" id="submit" value="Sign In" />
+        <input type="submit" id="submit" value="Sign In" />
       </form>
     </>
   )
