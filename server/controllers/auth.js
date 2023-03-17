@@ -11,26 +11,9 @@ function getExpiration() {
   return d.getTime()
 }
 
-
-export async function Signup(req, res) {
-  let { username, password } = req.body
-  let hash = await bcrypt.hash(password, 5)
-  let user = await User.create({
-    username,
-    hash
-  })
-
-  const data = {
-    id: user._id,
-    exp: getExpiration()
-  }
-  const token = jwt.sign(data, TOKEN_KEY)
-  return res.json(token)
-}
-
 export async function Sign_in(req, res) {
-  let { username, password } = req.body
-  let user = await User.findOne({ username })
+  const { username, password } = req.body
+  const user = await User.findOne({ username })
   if (!user) {
     return res.status(418).json({
       message: "User doesn't exist. Please create an account."
@@ -39,16 +22,34 @@ export async function Sign_in(req, res) {
   const hash = user.hash
   const result = await bcrypt.compare(password, hash)
   if (result) {
-    let data = {
+    const data = {
       id: user._id,
       exp: getExpiration()
     }
-    let token = jwt.sign(data, TOKEN_KEY)
-    console.log("User is logged in.");
+    const token = jwt.sign(data, TOKEN_KEY)
     return res.json(token)
   } else {
     return res.status(418).json({
       message: 'Something went wrong.'
     })
+  }
+}
+
+export async function Signup(req, res) {
+  const { username, password } = req.body
+
+  // Check if the username is taken.
+  const isUser = await User.findOne({ username })
+  if (isUser) {
+    return res.json({ usernameExists: true })
+  } else {
+    const hash = await bcrypt.hash(password, 5)
+    const user = await User.create({ username, hash })
+    const data = {
+      id: user._id,
+      exp: getExpiration()
+    }
+    const token = jwt.sign(data, TOKEN_KEY)
+    return res.json(token)
   }
 }

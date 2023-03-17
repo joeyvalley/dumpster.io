@@ -1,14 +1,19 @@
 import api from './apiConfig.js'
 
-export default async function signIn(username, password) {
+const LOCALSTORAGE_KEY = 'TOKEN'
+
+export async function signIn(username, password) {
   const res = await api.post('/auth/signin/', { username, password })
-  return res
+  localStorage.setItem(LOCALSTORAGE_KEY, res.data)
 }
 
-export async function signUp(username, email, password, password2) {
-  if (password !== password2) {
-    return "Passwords do not match."
+export async function signUp(username, password) {
+  const res = await api.post('/auth/signup/', { username, password })
+  // If username already exists, make user choose a new username.
+  if (res.data.usernameExists) {
+    return "User already exists."
   }
-  const res = await api.post('/auth/signup/', { username, email, password })
-  return res
+  // If new user is created, store token in local storage and redirect user to homepage.
+  localStorage.setItem(LOCALSTORAGE_KEY, res.data)
+  window.location.replace("/")
 }

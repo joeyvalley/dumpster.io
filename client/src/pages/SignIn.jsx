@@ -1,5 +1,5 @@
 import { useState } from "react"
-import signIn from '../api/user'
+import { signIn } from '../api/user'
 
 export default function SignIn() {
   const [username, setUsername] = useState()
@@ -7,8 +7,7 @@ export default function SignIn() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-    const response = await signIn(username, password)
-    console.log(response);
+    await signIn(username, password)
   }
   return (
     <>
