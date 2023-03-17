@@ -6,3 +6,5 @@ import User from '../models/user.js';
 await User.deleteMany({});
 await Product.deleteMany();
 await Product.insertMany(data);
+
+mongoose.disconnect();
