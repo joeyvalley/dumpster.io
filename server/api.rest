@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:{{$dotenv PORT}}/api
+@baseUrl = http://localhost:8080/api
 
 POST {{baseUrl}}/auth/signup
 content-type: application/json

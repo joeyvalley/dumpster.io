@@ -4,3 +4,5 @@ import Product from '../models/products.js'
 
 await Product.deleteMany();
 await Product.insertMany(data);
+
+mongoose.disconnect();
