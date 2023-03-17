@@ -12,7 +12,7 @@ function getExpiration() {
 }
 
 
-export default async function Authenticator(req,res) { 
+export default async function Signup(req,res) { 
   let { username, password } = req.body
   let hash = await bcrypt.hash(password, 5)
   let user = await User.create({
@@ -21,7 +21,7 @@ export default async function Authenticator(req,res) {
   })
   
   const data = {
-    id: user_id,
+    id: user._id,
     exp: getExpiration()
   }
   const token = jwt.sign(data, TOKEN_KEY)
