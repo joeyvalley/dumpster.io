@@ -15,8 +15,8 @@ export async function Sign_in(req, res) {
   const { username, password } = req.body
   const user = await User.findOne({ username })
   if (!user) {
-    return res.status(418).json({
-      message: "User doesn't exist. Please create an account."
+    return res.json({
+      isUser: false
     })
   }
   const hash = user.hash
