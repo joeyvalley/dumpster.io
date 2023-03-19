@@ -4,9 +4,14 @@ const LOCALSTORAGE_KEY = 'TOKEN'
 
 export async function signIn(username, password) {
   const res = await api.post('/auth/signin/', { username, password })
-  localStorage.setItem(LOCALSTORAGE_KEY, res.data)
-  window.location.replace("/")
+  if (res.data.isUser) {
+    localStorage.setItem(LOCALSTORAGE_KEY, res.data)
+    window.location.replace("/")
+  } else {
+    return false;
+  }
 }
+
 
 export async function signUp(username, password) {
   const res = await api.post('/auth/signup/', { username, password })
