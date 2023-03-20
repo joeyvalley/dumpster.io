@@ -8,6 +8,7 @@ export async function signIn(username, password) {
   // If the user exists and the password is correct, store the token in local storage and redirect the user to home.
   if (res.data.token) {
     localStorage.setItem(LOCALSTORAGE_KEY, res.data.token)
+    localStorage.setItem("AVATAR", res.data.avatar)
     return { login: true, message: "Logged in." }
   }
   // If the user does not exist, send user to sign up page.
@@ -20,6 +21,7 @@ export async function signIn(username, password) {
   }
 }
 
+
 export async function signUp(username, password) {
   const res = await api.post('/auth/signup/', { username, password })
   // If username already exists, make user choose a new username.
@@ -29,4 +31,9 @@ export async function signUp(username, password) {
   // If new user is created, store token in local storage and redirect user to homepage.
   localStorage.setItem(LOCALSTORAGE_KEY, res.data)
   window.location.replace("/")
+}
+
+export async function getUser() {
+  const res = await api.get(`/user/:username`)
+  console.log(res);
 }

@@ -13,6 +13,13 @@
   height: 2rem;
 }
 
+.avatar-img {
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+  border: 1px solid #ababab;
+}
+
 .search-bar {
   display: flex;
   justify-content: flex-start;
@@ -61,6 +68,10 @@
   gap: 0.25rem;
 }
 
+.profile-container:hover {
+  cursor: pointer;
+}
+
 .airbnb-your-home {
   padding: 1rem;
   font-weight: 600;
@@ -83,13 +94,11 @@
   padding: 0.5rem;
   border-radius: 2rem;
   box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
-
 }
 
 .menu-items {
   padding: 0.5rem 1rem !important;
   font-size: 0.8rem;
-  color: var(--font-grey);
 }
 
 .bottom-nav {
@@ -97,6 +106,7 @@
 }
 
 @media only screen and (max-width: 800px) {
+
   .search-bar,
   .airbnb-your-home {
     display: none;
