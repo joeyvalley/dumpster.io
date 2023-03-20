@@ -1,4 +1,5 @@
 @baseUrl = http://localhost:{{$dotenv PORT}}/api
+# @name GetPosts
 
 POST {{baseUrl}}/auth/signup
 content-type: application/json
@@ -17,11 +18,11 @@ content-type: application/json
   "password":"1236"
 }
 ###
+@postId = {{GetPosts.response.body.0._id}}
 POST {{baseUrl}}/new/createproduct
 content-type: application/json
 
 {
   "title": "hi",
-  "author": "ObjectId('64148b72d22819d1625f7380')",
-  "description": "does this work?"
+  "description": "does this work?",
 }
