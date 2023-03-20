@@ -7,7 +7,7 @@ export default function Home() {
 
   return (
     <>
-      <div>dumpster.io</div>
+      <div></div>
       {/* <Navigation></Navigation>
     <HorizontalScroll></HorizontalScroll>
     <Posts></Posts>
