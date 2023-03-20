@@ -5,6 +5,7 @@
   flex-wrap: wrap;
   padding: 1rem 3rem;
 }
+
 .card-box {
   margin: 1rem;
   margin-bottom: 2rem;
@@ -40,6 +41,7 @@
 }
 
 @media only screen and (max-width: 1000px) {
+
   .swiper-container,
   .card-img {
     height: 400px;
@@ -48,6 +50,7 @@
 }
 
 @media only screen and (max-width: 800px) {
+
   .swiper-container,
   .card-img {
     height: 50%;
@@ -59,4 +62,3 @@
     padding: 0px;
   }
 }
-
