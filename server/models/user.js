@@ -1,9 +1,16 @@
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-  username: String,
+  name: String,
+  email: String,
+  username: {
+    type: String,
+    unique: true,
+    lowercase: true,
+  },
   hash: String,
-  posts: []
+  avatar: String,
+  favorites: []
 })
 
 export default mongoose.model('User', userSchema)

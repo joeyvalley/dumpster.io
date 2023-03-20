@@ -1,17 +1,22 @@
-// import Navigation from '../components/Navigation'
-// import HorizontalScroll from '../components/HorizontalScroll'
-// import Posts from '../components/Post'
-// import Footer from '../components/Footer'
+import { useState } from "react";
+import SignIn from "./SignIn/SignIn";
 
 export default function Home() {
+  const [login, setLogin] = useState(false)
 
+  function handleLogin() {
+    setLogin(true);
+  }
+
+  function receiveData(visibility) {
+    setLogin(false)
+  }
   return (
     <>
-      <div></div>
-      {/* <Navigation></Navigation>
-    <HorizontalScroll></HorizontalScroll>
-    <Posts></Posts>
-    <Footer></Footer> */}
+      <button type="button" onClick={handleLogin}>
+        Open Modal
+      </button>
+      {login && <SignIn visibility={true} sendDataToParent={receiveData}></SignIn>}
     </>
   )
 }
