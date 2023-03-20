@@ -35,7 +35,7 @@ export async function Sign_in(req, res) {
 
   // If the correct password was input, create a token and return it.
   if (result) {
-    const data = {
+    let data = {
       id: user._id,
       exp: getExpiration()
     }
