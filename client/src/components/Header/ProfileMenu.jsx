@@ -8,7 +8,7 @@ import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
 
 // Import components.
-import SignIn from "../SignIn/SignIn";
+import SignIn from "../../components/SignIn/SignIn";
 
 // Import CSS
 import "./Header.css";
