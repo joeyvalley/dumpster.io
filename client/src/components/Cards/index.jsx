@@ -3,7 +3,6 @@ import Card from './Card'
 import { getItems } from "../../api/items.js";
 import { useEffect, useState } from "react";
 
-
 function Cards() {
   const [items, setItems] = useState()
 
@@ -22,9 +21,10 @@ function Cards() {
           <Card
             id={item._id}
             img={item.img}
+            title={item.title}
           />
         ))
-        : console.log("no")
+        : null
       }
     </div >
   );

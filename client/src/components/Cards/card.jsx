@@ -1,25 +1,13 @@
 import React from "react";
 import "./Card.css";
-import item from "../../assets/items/trashcan.png";
-import StarRateRoundedIcon from "@mui/icons-material/StarRateRounded";
-import items from './items.json';
 
-console.log(items);
-
-
-function Card() {
+function Card({ id, img, title }) {
+  console.log(img);
   return (
-    <div className="card-box">
-      <img src={item} className="card-img" alt="" />
+    <div className="card-box" key={id}>
+      <img src={img} className="card-img" alt="" />
       <div className="card-info-flex">
-        <h3 className="card-title">Item</h3>
-        <div className="card-rating">
-          <StarRateRoundedIcon />
-          <p>10</p>
-          <div className="price">
-            <p></p>
-          </div>
-        </div>
+        <h3 className="card-title">{title}</h3>
       </div>
     </div>
   );
