@@ -1,13 +1,19 @@
-import React, { useEffect } from "react";
-import Card from "./Card";
 import "./Card.css";
-import items from './items.json'
-import { useState, useEffect } from "react";
+import Card from './Card'
+import { getItems } from "../../api/items.js";
+import { useEffect, useState } from "react";
 
 function Cards() {
-  useEffect(() => {
+  const [items, setItems] = useState()
 
-  })
+  useEffect(() => {
+    const workAround = async () => {
+      const items = await getItems()
+      setItems(items);
+    };
+    workAround();
+  }, [])
+
   return (
     <div className="cards-flex">
       {items ?
@@ -18,7 +24,7 @@ function Cards() {
             title={item.title}
           />
         ))
-        : console.log("no")
+        : null
       }
     </div >
   );
