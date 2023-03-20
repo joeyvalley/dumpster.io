@@ -22,6 +22,7 @@ function Cards() {
           <Card
             id={item._id}
             img={item.img}
+            title={item.title}
           />
         ))
         : console.log("no")
