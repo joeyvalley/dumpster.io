@@ -11,29 +11,51 @@ function getExpiration() {
   return d.getTime()
 }
 
+/***************************************************************/
+/****                                                       ****/
+/***                 USER                                    ***/
+/**                      SIGN                                 **/
+/***                         IN                              ***/
+/****                                                       ****/
+/***************************************************************/
+
 export async function Sign_in(req, res) {
   const { username, password } = req.body
   const user = await User.findOne({ username })
+
+  // If the user does not exist, make them create a new account.
   if (!user) {
     return res.json({
-      isUser: false
+      isUser: true
     })
   }
+
+  // If the user does exist, check the password against the hash.
   const hash = user.hash
   const result = await bcrypt.compare(password, hash)
+
+  // If the correct password was input, create a token and return it.
   if (result) {
     const data = {
       id: user._id,
       exp: getExpiration()
     }
     const token = jwt.sign(data, TOKEN_KEY)
-    return res.json(token)
-  } else {
-    return res.status(418).json({
-      message: 'Something went wrong.'
-    })
+    return res.json({ token: token })
+  }
+  // If the incorrect password was input, let the user know.  
+  else {
+    return res.json({ isPassword: true })
   }
 }
+
+/***************************************************************/
+/****                                                       ****/
+/***                 USER                                    ***/
+/**                      SIGN                                 **/
+/***                         UP                              ***/
+/****                                                       ****/
+/***************************************************************/
 
 export async function Signup(req, res) {
   const { username, password } = req.body
