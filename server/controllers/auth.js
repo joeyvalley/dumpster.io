@@ -1,5 +1,4 @@
 import bcrypt from 'bcrypt'
-import { getRandomValues } from 'crypto'
 import jwt from 'jsonwebtoken'
 import User from '../models/user.js'
 
@@ -41,7 +40,7 @@ export async function Sign_in(req, res) {
       exp: getExpiration()
     }
     const token = jwt.sign(data, TOKEN_KEY)
-    return res.json({ token: token })
+    return res.json({ token: token, avatar: user.avatar })
   }
   // If the incorrect password was input, let the user know.  
   else {
