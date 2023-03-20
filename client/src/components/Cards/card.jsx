@@ -2,7 +2,6 @@ import React from "react";
 import "./Card.css";
 
 function Card({ id, img, title }) {
-  console.log(img);
   return (
     <div className="card-box" key={id}>
       <img src={img} className="card-img" alt="" />
