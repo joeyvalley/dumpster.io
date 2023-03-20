@@ -10,16 +10,17 @@ function Cards() {
   })
   return (
     <div className="cards-flex">
-      items.map((item, index) => {
-
-      <Card 
-        img={item.img}
-        desc={item.desc}
-      />
-      })
-
-      )
-    </div>
+      {items ?
+        items.map(item => (
+          <Card
+            id={item._id}
+            img={item.img}
+            title={item.title}
+          />
+        ))
+        : console.log("no")
+      }
+    </div >
   );
 }
 

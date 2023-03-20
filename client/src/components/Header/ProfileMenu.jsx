@@ -44,7 +44,8 @@ export default function BasicMenu({ auth }) {
           <MenuRoundedIcon /> {auth ? <img alt="avatar" src={avatar} className="avatar-img" /> : <AccountCircleRoundedIcon />}
         </div>
         <Menu id="basic-menu" anchorEl={anchorEl} open={open} onClose={handleClose} MenuListProps={{ "aria-labelledby": "basic-button" }} sx={{ ".MuiPaper-root": { minWidth: "200px", borderRadius: "1rem", boxShadow: "0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%)" }, }}>
-          <MenuItem className="menu-items" onClick={handleClose}>User Profile</MenuItem>
+          <MenuItem className="menu-items" onClick={handleClose}> Profile</MenuItem>
+          <MenuItem className="menu-items" onClick={handleClose}> Create Post</MenuItem>
           <MenuItem className="menu-items" onClick={handleClose} >Logout</MenuItem>
         </Menu>
       </div>
