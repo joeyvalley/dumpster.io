@@ -6,6 +6,7 @@ import { signIn } from '../../api/user'
 export default function SignIn({ visibility, sendDataToParent }) {
   const [username, setUsername] = useState()
   const [password, setPassword] = useState()
+  const [error, setError] = useState()
   const signInModal = useRef(null)
   const backDropRef = useRef(null)
 
@@ -19,7 +20,11 @@ export default function SignIn({ visibility, sendDataToParent }) {
   async function handleSubmit(e) {
     e.preventDefault()
     const res = await signIn(username, password)
-    console.log(res);
+    if (res.login) {
+      window.location.reload()
+    } else {
+      setError(res.message)
+    }
   }
 
   function handleClose(e) {
@@ -42,7 +47,7 @@ export default function SignIn({ visibility, sendDataToParent }) {
               <path d="m26 6-20 20" ></path>
             </svg>
           </span>
-          <h1>Log in or sign up</h1>
+          <h1>Log in or create an account</h1>
         </div>
         <div className='signin-modal-input-area'>
           <h2>Welcome to dumpster.io</h2>
@@ -63,6 +68,7 @@ export default function SignIn({ visibility, sendDataToParent }) {
               required
             />
             <p>We’ll call or text you to confirm your number. Standard message and data rates apply. <a href="https://www.youtube.com/watch?v=wvVWyJavZJs">Privacy Policy</a></p>
+            <p className='error-message'>{error}</p>
             <input type="submit" id="submit" value="Sign In" />
           </form>
         </div>

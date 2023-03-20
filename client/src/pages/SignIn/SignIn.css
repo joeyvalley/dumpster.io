@@ -2,6 +2,7 @@
   --modal-radius: 12px;
   --black: #0f0f0f;
   --dark-grey: #222;
+  --error: #a9323a;
   --eggplant: #1F1028;
   --dumpster: #314443;
   --light-green: #52C47A;
@@ -53,6 +54,10 @@ form p {
   opacity: 0;
 }
 
+.error-message {
+  color: var(--error);
+}
+
 .sign-in-modal-header {
   border-bottom: 1px solid #EBEBEB;
   height: 62px;
@@ -69,7 +74,7 @@ form p {
   font-size: 14px;
   line-height: 1.43;
   color: var(--dark-grey);
-  margin: 0;
+  margin-top: 3px;
   -webkit-font-smoothing: antialiased;
   text-align: center;
 }
@@ -132,6 +137,7 @@ form p {
   stroke-width: 3;
   overflow: visible;
   border-radius: 100%;
+  margin-top: 2px;
   padding: 4px;
   transition: background-color ease-out 200ms;
 }
