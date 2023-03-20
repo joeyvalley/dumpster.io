@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:3000/api
+@baseUrl = http://localhost:{{$dotenv PORT}}/api
 
 POST {{baseUrl}}/auth/signup
 content-type: application/json
@@ -15,4 +15,13 @@ content-type: application/json
 {
   "username": "1237",
   "password":"1236"
+}
+###
+POST {{baseUrl}}/new/createproduct
+content-type: application/json
+
+{
+  "title": "hi",
+  "author": "ObjectId('64148b72d22819d1625f7380')",
+  "description": "does this work?"
 }
