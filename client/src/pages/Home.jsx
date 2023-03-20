@@ -14,23 +14,10 @@ export default function Home() {
     localStorage.getItem("TOKEN") ? setAuth(true) : setAuth(false)
   }, [])
 
-  // const [login, setLogin] = useState(false)
   const [selectedFilter, setSelectedFilter] = useState(0);
 
-  // function handleLogin() {
-  //   setLogin(true);
-  // }
-
-  // function receiveData(visibility) {
-  //   setLogin(false)
-  // }
   return (
     <>
-      {/* <button type="button" onClick={handleLogin}>
-        Open Modal
-      </button>
-      {login && <SignIn visibility={true} sendDataToParent={receiveData}></SignIn>} */}
-
       <Header auth={auth} />
       <Filter selectedFilter={selectedFilter} setSelectedFilter={setSelectedFilter} />
       <Cards />
