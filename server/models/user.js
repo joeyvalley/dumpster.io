@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
     lowercase: true,
   },
   hash: String,
+  avatar: String,
   favorites: []
 })
 

@@ -1,5 +1,4 @@
 import bcrypt from 'bcrypt'
-import { getRandomValues } from 'crypto'
 import jwt from 'jsonwebtoken'
 import User from '../models/user.js'
 
@@ -11,39 +10,67 @@ function getExpiration() {
   return d.getTime()
 }
 
+/***************************************************************/
+/****                                                       ****/
+/***                 USER                                    ***/
+/**                      SIGN                                 **/
+/***                         IN                              ***/
+/****                                                       ****/
+/***************************************************************/
 
-export async function Signup(req, res) {
-  let { username, password } = req.body
-  let hash = await bcrypt.hash(password, 5)
-  let user = await User.create({
-    username,
-    hash
-  })
-  
-  const data = {
-    id: user._id,
-    exp: getExpiration()
+export async function Sign_in(req, res) {
+  const { username, password } = req.body
+  const user = await User.findOne({ username })
+
+  // If the user does not exist, make them create a new account.
+  if (!user) {
+    return res.json({
+      isUser: true
+    })
   }
-  const token = jwt.sign(data, TOKEN_KEY)
-  return res.json(token)
-}
 
-export async function Sign_in(req, res) { 
-  let { username, password } = req.body
-  let user = await User.findOne({ username })
-  
-  let hash = user.hash
+  // If the user does exist, check the password against the hash.
+  const hash = user.hash
   const result = await bcrypt.compare(password, hash)
+
+  // If the correct password was input, create a token and return it.
   if (result) {
     let data = {
       id: user._id,
       exp: getExpiration()
     }
-    let token = jwt.sign(data, TOKEN_KEY)
+    const token = jwt.sign(data, TOKEN_KEY)
+    return res.json({ token: token, avatar: user.avatar })
+  }
+  // If the incorrect password was input, let the user know.  
+  else {
+    return res.json({ isPassword: true })
+  }
+}
+
+/***************************************************************/
+/****                                                       ****/
+/***                 USER                                    ***/
+/**                      SIGN                                 **/
+/***                         UP                              ***/
+/****                                                       ****/
+/***************************************************************/
+
+export async function Signup(req, res) {
+  const { username, password } = req.body
+
+  // Check if the username is taken.
+  const isUser = await User.findOne({ username })
+  if (isUser) {
+    return res.json({ usernameExists: true })
+  } else {
+    const hash = await bcrypt.hash(password, 5)
+    const user = await User.create({ username, hash })
+    const data = {
+      id: user._id,
+      exp: getExpiration()
+    }
+    const token = jwt.sign(data, TOKEN_KEY)
     return res.json(token)
-  } else { 
-    return res.status(418).json({
-      message: 'you are a tea pot, we only like coffee'
-    })
   }
 }
