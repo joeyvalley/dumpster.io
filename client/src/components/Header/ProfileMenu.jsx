@@ -32,6 +32,12 @@ export default function BasicMenu({ auth }) {
       setLogin(true);
     }
   };
+
+  function handleLogout() {
+    localStorage.clear();
+    window.location.reload();
+  }
+
   function handleClose() {
     setAnchorEl(null);
   };
@@ -52,7 +58,7 @@ export default function BasicMenu({ auth }) {
           <MenuItem className="menu-items" onClick={handleClose}> Profile</MenuItem>
           </Link>
           <MenuItem className="menu-items" onClick={handleClose}> Create Post</MenuItem>
-          <MenuItem className="menu-items" onClick={handleClose} >Logout</MenuItem>
+          <MenuItem className="menu-items" onClick={handleLogout} >Logout</MenuItem>
         </Menu>
       </div>
       {login && <SignIn visibility={true} sendDataToParent={receiveData}></SignIn>}

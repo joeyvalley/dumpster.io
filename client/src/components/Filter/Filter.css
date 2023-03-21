@@ -1,10 +1,17 @@
 .filter-div {
-  border-top: 1px solid var(--grey);
-  padding: 1rem 3rem;
   display: flex;
-  justify-content: flex-start;
+  justify-content: left;
   align-items: center;
   overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding-top: 36px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.filter-div::-webkit-scrollbar {
+  display: none;
 }
 
 .links-box {
@@ -14,8 +21,7 @@
   align-items: center;
   margin-right: 2rem;
   opacity: 0.5;
-  border-bottom: 1px solid var(--white);
-  min-width: 85px;
+  border-bottom: 1px solid white;
 }
 
 .links-box:hover,
@@ -41,6 +47,7 @@
 .selected-label {
   color: var(--black);
 }
+
 @media only screen and (max-width: 800px) {
   .filter-div {
     padding: 0.5rem;

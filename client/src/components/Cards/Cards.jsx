@@ -26,15 +26,18 @@ function Cards() {
       {items ?
         items.map(item => (
           <div onClick={handleClick}>
-          <Link to={`/item/${item._id}`}>
-          <Card
-            id={item._id}
-            img={item.img}
-            title={item.title}
-          />
-          {/* <Link to="item/:_id"></Link> */}
-            
-          </Link>
+            <Link to={`/item/${item._id}`}>
+              <Card
+                id={item._id}
+                title={item.title}
+                description={item.description}
+                img={item.img}
+                location={item.location}
+                date={item.dateUploaded}
+              />
+              {/* <Link to="item/:_id"></Link> */}
+
+            </Link>
           </div>
         ))
         : null

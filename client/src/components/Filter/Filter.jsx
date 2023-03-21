@@ -1,8 +1,8 @@
-import React, { useState } from "react";
 import { links } from "../../assets/images-links";
 import "./Filter.css";
 
 function Filter({ selectedFilter, setSelectedFilter }) {
+
   return (
     <div className="filter-div">
       {links.map((item, i) => (
