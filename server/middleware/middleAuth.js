@@ -8,6 +8,7 @@ export default async function middleAuth(req, res, next) {
       message: "sign in you"
     })
   }
+  console.log(token)
   const data = jwt.verify(token, TOKEN_KEY)
   req.id = data.id
   next()

@@ -40,6 +40,6 @@ export async function getUser() {
 
 
 export async function getUserProfile(id,body) {
-  const res = await api.patch(`/user/profile/${id}`, {body})
+  const res = await api.patch(`/user/profile/${id}`, body)
   return res.data
 }

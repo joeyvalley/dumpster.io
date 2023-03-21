@@ -13,8 +13,9 @@ export default function Profile() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-    const res = await getUserProfile(userHash, {username,password,name,email,avatar,favorites})
-    console.log(res);
+    let userData = {username,password,name,email,avatar,favorites}
+    const res = await getUserProfile(userHash, userData)
+  
   }
   return (
     <>
