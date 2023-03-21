@@ -1,14 +1,14 @@
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
-import Posting from './pages/Posting'
 import Profile from './pages/Profile'
+import Showpage from './components/Showpage/Showpage'
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/item/:id" element={<Posting />} />
+        <Route path="/item/:id" element={<Showpage />} />
         <Route path="/user/:id" element={<Profile />} />
       </Routes>
     </>
