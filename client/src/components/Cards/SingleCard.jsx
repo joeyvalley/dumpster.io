@@ -1,5 +1,5 @@
-import React from "react";
 import "./Card.css";
+import { Link } from "react-router-dom";
 
 function Card({ id, title, description, img, location, date }) {
 
@@ -12,10 +12,11 @@ function Card({ id, title, description, img, location, date }) {
     event.currentTarget.classList.toggle('isFav')
   }
 
-
   return (
     <div className="card-box" key={id}>
-      <img src={img} className="card-img" alt="" />
+      <Link to={`/item/${id}`}>
+        <img src={img} className="card-img" alt="" />
+      </Link>
       <div className="card-info-flex">
         <div className="top">
           <span className="card-title">{title.length > 30 ? title.substring(0, 30) + "..." : title}</span>

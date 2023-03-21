@@ -7,5 +7,5 @@ export async function getItems() {
 
 export async function getItem(_id) {
   const res = await api.get(`/new/${_id}`)
-  console.log(res);
+  return res.data
 }
