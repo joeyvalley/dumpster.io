@@ -15,5 +15,5 @@ export default async function Profile() {
     console.log(profile);
   }, [profile])
 
-  return <span>hi</span>
+  return <span>{ profile}</span>
 }
