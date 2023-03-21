@@ -37,3 +37,9 @@ export async function getUser() {
   const res = await api.get(`/user/:username`)
   console.log(res);
 }
+
+
+export async function getUserProfile(id) {
+  const res = await api.patch(`/user/profile/${id}`)
+  return res.data
+}

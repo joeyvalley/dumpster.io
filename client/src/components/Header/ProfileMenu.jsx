@@ -12,6 +12,7 @@ import SignIn from "../../components/SignIn/SignIn";
 
 // Import CSS
 import "./Header.css";
+import { Link } from "react-router-dom";
 
 export default function BasicMenu({ auth }) {
 
@@ -37,6 +38,7 @@ export default function BasicMenu({ auth }) {
     setLogin(false)
   }
 
+
   return (
     <>
       <div>
@@ -44,7 +46,9 @@ export default function BasicMenu({ auth }) {
           <MenuRoundedIcon /> {auth ? <img alt="avatar" src={avatar} className="avatar-img" /> : <AccountCircleRoundedIcon />}
         </div>
         <Menu id="basic-menu" anchorEl={anchorEl} open={open} onClose={handleClose} MenuListProps={{ "aria-labelledby": "basic-button" }} sx={{ ".MuiPaper-root": { minWidth: "200px", borderRadius: "1rem", boxShadow: "0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%)" }, }}>
+          <Link to="/user/profile">
           <MenuItem className="menu-items" onClick={handleClose}> Profile</MenuItem>
+          </Link>
           <MenuItem className="menu-items" onClick={handleClose}> Create Post</MenuItem>
           <MenuItem className="menu-items" onClick={handleClose} >Logout</MenuItem>
         </Menu>

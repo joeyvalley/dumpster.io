@@ -26,3 +26,12 @@ content-type: application/json
   "title": "hi",
   "description": "does this work?",
 }
+
+####
+PATCH {{baseUrl}}/user/profile/6418e86f4753523c2add9140
+content-type: application/json
+
+{
+  "name": "Miguel Arias",
+  "email": "argenis803@gmail.com"
+}
