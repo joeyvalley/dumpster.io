@@ -10,27 +10,68 @@
   --light-grey: #f0f0f0;
   --white: #fefefe;
   --shadow: rgb(124, 124, 124);
+  --shadow2: rgb(124, 124, 124, 0.5);
   --fadeOut: opacity ease-out 300ms;
 }
 
 .cards-flex {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 1rem 3rem;
+  margin: 0;
+  padding: 40px;
+  row-gap: 40px;
+  overflow: hidden;
+  margin-bottom: 54px;
 }
 
 .card-title {
+  font-weight: 700;
   color: var(--light-green);
-  width: 260px;
-  overflow: hidden;
-  white-space: nowrap;
+}
+
+.desc {
+  width: 270px;
+}
+
+.date-posted {
+  float: left;
+  font-size: 12px;
+}
+
+.star {
+  float: right;
+  margin-top: 1px;
+  color: var(--dumpster);
+  transition: color ease-out 100ms;
+}
+
+.star:hover {
+  cursor: pointer;
+}
+
+.star-svg {
+  width: 17px;
+  height: 17px;
+}
+
+.starClick {
+  cursor: pointer;
+  fill: #000;
+  fill-rule: nonzero;
+  transition: fill ease-out 100ms;
+  width: 19px;
+  height: 19px;
+}
+
+.isFav {
+  color: red;
 }
 
 .card-box {
-  margin: 1rem;
-  margin-bottom: 2rem;
+  margin: 0;
+  padding: 0;
   box-shadow: var(--shadow);
 }
 
@@ -44,11 +85,25 @@
   height: 270px;
   width: 270px;
   object-fit: cover;
-  border-radius: 0.5rem;
+  border-radius: 12px;
+  margin-bottom: 6px;
+  transition: box-shadow ease-out 300ms;
+}
+
+.card-img:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 10px var(--shadow2);
+}
+
+.top {
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .card-info-flex {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
 }

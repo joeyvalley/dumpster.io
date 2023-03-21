@@ -20,8 +20,11 @@ function Cards() {
         items.map(item => (
           <Card
             id={item._id}
-            img={item.img}
             title={item.title}
+            description={item.description}
+            img={item.img}
+            location={item.location}
+            date={item.dateUploaded}
           />
         ))
         : null

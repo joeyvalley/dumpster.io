@@ -2,11 +2,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 3rem;
+  padding: 0px;
   position: sticky;
   top: 0;
   background-color: white;
   z-index: 1000;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #EBEBEB;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .navbar-logo {
@@ -14,8 +19,8 @@
 }
 
 .avatar-img {
-  height: 30px;
-  width: 30px;
+  height: 24px;
+  width: 24px;
   border-radius: 100%;
   border: 1px solid #ababab;
 }

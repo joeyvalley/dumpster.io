@@ -1,17 +1,11 @@
-import React from "react";
-// import logo from '../assets/logo.svg'
+import './Footer.css'
+
+export default function Footer() {
 
 
-const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="container">
-        {/* <img className="" alt="" src={logo}/> */}
-        <h4>City</h4>
-        <h4>© 2023 Dumpster.io</h4>
-      </div>
-    </footer>
+    <div className="footer">
+      <p>&copy; dumpster.io 2023 &hearts;</p>
+    </div>
   );
 }
-
-export default Footer;

@@ -29,6 +29,12 @@ export default function BasicMenu({ auth }) {
       setLogin(true);
     }
   };
+
+  function handleLogout() {
+    localStorage.clear();
+    window.location.reload();
+  }
+
   function handleClose() {
     setAnchorEl(null);
   };
@@ -46,7 +52,7 @@ export default function BasicMenu({ auth }) {
         <Menu id="basic-menu" anchorEl={anchorEl} open={open} onClose={handleClose} MenuListProps={{ "aria-labelledby": "basic-button" }} sx={{ ".MuiPaper-root": { minWidth: "200px", borderRadius: "1rem", boxShadow: "0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%)" }, }}>
           <MenuItem className="menu-items" onClick={handleClose}> Profile</MenuItem>
           <MenuItem className="menu-items" onClick={handleClose}> Create Post</MenuItem>
-          <MenuItem className="menu-items" onClick={handleClose} >Logout</MenuItem>
+          <MenuItem className="menu-items" onClick={handleLogout} >Logout</MenuItem>
         </Menu>
       </div>
       {login && <SignIn visibility={true} sendDataToParent={receiveData}></SignIn>}
