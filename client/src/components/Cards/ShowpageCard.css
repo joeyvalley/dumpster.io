@@ -1,0 +1,19 @@
+.showpage-container {
+  padding: 0px 40px;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  margin-bottom: var(--clearFooter);
+}
+
+.item-info {
+  background: green;
+  padding-right: 9px;
+}
+
+.item-info img {
+  width: 100%;
+}
+
+.item-location-map {
+  background: blue;
+}

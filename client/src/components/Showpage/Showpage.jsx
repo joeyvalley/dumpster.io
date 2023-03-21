@@ -1,10 +1,11 @@
-import React from 'react'
 import Header from '../Header/Header'
 import Filter from '../Filter/Filter'
+import Footer from '../Footer/Footer'
+import ShowpageCard from '../Cards/ShowpageCard';
+
 import { useEffect, useState } from "react";
 import { getItem } from '../../api/items';
-import { Params, useParams } from 'react-router-dom';
-import { ShowpageCard } from '../Cards/ShowpageCard';
+import { useParams } from 'react-router-dom';
 
 export default function Showpage() {
   const [searchResults, setSearchResults] = useState(null)
@@ -32,6 +33,7 @@ export default function Showpage() {
       <Header auth={auth} />
       <Filter selectedFilter={selectedFilter} setSelectedFilter={setSelectedFilter} />
       <ShowpageCard props={searchResults} />
+      <Footer />
     </>
   )
 }

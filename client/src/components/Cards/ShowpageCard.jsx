@@ -1,11 +1,19 @@
-export function ShowpageCard({ props }) {
-  console.log(props);
+// Import CSS.
+import './ShowpageCard.css'
+
+export default function ShowpageCard({ props }) {
   return (
     <>
-      <p>{props ? props.title : ""}</p>
-      <p>{props ? props.description : ""}</p>
-      <img alt="theghing" src={props ? props.img : ""} />
-      <p>{props ? props.dateUploaded : ""}</p>
+      <div className="showpage-container">
+        <div className="item-info">
+          <p>{props ? props.title : ""}</p>
+          <img alt="the-item" src={props ? props.img : ""} />
+          <p>{props ? props.description : ""}</p>
+          <p>{props ? props.dateUploaded : ""}</p>
+        </div>
+        <div className="item-location-map">
+        </div>
+      </div>
     </>
   )
 }
