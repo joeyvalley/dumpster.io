@@ -5,8 +5,8 @@ POST {{baseUrl}}/auth/signup
 content-type: application/json
 
 {
-  "username": "1236",
-  "password":"1236"
+  "username": "1111",
+  "password":"1111"
 }
 ###
 
@@ -14,8 +14,8 @@ POST {{baseUrl}}/auth/signin
 content-type: application/json
 
 {
-  "username": "1237",
-  "password":"1236"
+  "username": "1111",
+  "password":"1111"
 }
 ###
 @postId = {{GetPosts.response.body.0._id}}
@@ -25,4 +25,14 @@ content-type: application/json
 {
   "title": "hi",
   "description": "does this work?",
+}
+
+####
+
+PATCH {{baseUrl}}/user/profile/6419d954b99a4b8a27d82fda
+content-type: application/json
+
+{
+  "name": "Miguel Arias",
+  "email": "argenis803@gmail.com"
 }
