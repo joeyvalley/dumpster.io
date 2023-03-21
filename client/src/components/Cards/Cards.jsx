@@ -31,9 +31,7 @@ function Cards() {
             id={item._id}
             img={item.img}
             title={item.title}
-          />
-          {/* <Link to="item/:_id"></Link> */}
-            
+          />            
           </Link>
           </div>
         ))
