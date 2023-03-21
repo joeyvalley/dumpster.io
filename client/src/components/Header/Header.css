@@ -18,6 +18,10 @@
   height: 2rem;
 }
 
+.navbar-logo:hover {
+  cursor: pointer;
+}
+
 .avatar-img {
   height: 24px;
   width: 24px;

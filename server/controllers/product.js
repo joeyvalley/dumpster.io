@@ -7,6 +7,11 @@ export async function showProducts(req, res) {
   return res.json(allProducts)
 }
 
+export async function showProduct(req, res) {
+  const searchResult = await Product.findOne({ "_id": req.params.id });
+  return res.json(searchResult)
+}
+
 export async function createProduct(req, res) {
 
   const { title, author, description, tags, img, location, dateUploaded } = req.body

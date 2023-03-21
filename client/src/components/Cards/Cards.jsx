@@ -1,8 +1,8 @@
 import "./Card.css";
-import Card from './Card'
+import Card from './SingleCard'
 import { getItems } from "../../api/items.js";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function Cards() {
   const [items, setItems] = useState()
@@ -26,18 +26,14 @@ function Cards() {
       {items ?
         items.map(item => (
           <div onClick={handleClick}>
-            <Link to={`/item/${item._id}`}>
-              <Card
-                id={item._id}
-                title={item.title}
-                description={item.description}
-                img={item.img}
-                location={item.location}
-                date={item.dateUploaded}
-              />
-              {/* <Link to="item/:_id"></Link> */}
-
-            </Link>
+            <Card
+              id={item._id}
+              title={item.title}
+              description={item.description}
+              img={item.img}
+              location={item.location}
+              date={item.dateUploaded}
+            />
           </div>
         ))
         : null

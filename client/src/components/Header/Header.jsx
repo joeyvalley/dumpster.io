@@ -4,6 +4,7 @@ import "./Header.css";
 // Import assets.
 import logo from "../../../src/assets/icon.png";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+import { Link } from "react-router-dom";
 
 // Import hooks.
 import { useRef, useState } from "react";
@@ -20,9 +21,12 @@ function Header({ auth }) {
   function handleSearch(e) {
     console.log(searchInput.current.value)
   }
+
   return (
     <div className="navbar">
-      <img src={logo} alt="logo" className="navbar-logo" />
+      <Link to={`/`}>
+        <img src={logo} alt="logo" className="navbar-logo" />
+      </Link>
 
       <div className="search-bar">
         <input
