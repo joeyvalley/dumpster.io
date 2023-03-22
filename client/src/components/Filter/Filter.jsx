@@ -1,10 +1,16 @@
-import { links } from "../../assets/images-links";
+// Import CSS.
 import "./Filter.css";
+// Import files.
+import { links } from "../../assets/images-links";
 
-function Filter({ selectedFilter, setSelectedFilter }) {
+// Import hooks.
+import { useRef } from "react";
+
+function Filter({ selectedFilter, setSelectedFilter, handleFilterRef }) {
+  const filterDiv = useRef(null)
 
   return (
-    <div className="filter-div">
+    <div ref={filterDiv} className="filter-div">
       {links.map((item, i) => (
         <div
           key={i}
