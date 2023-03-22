@@ -4,37 +4,12 @@ import "./Filter.css";
 import { links } from "../../assets/images-links";
 
 // Import hooks.
-import { useEffect, useRef, useState } from "react";
-import { InView } from "react-intersection-observer";
-
-
+import { useRef } from "react";
 
 function Filter({ selectedFilter, setSelectedFilter, handleFilterRef }) {
-  // const [sticky, setSticky] = useState(false)
   const filterDiv = useRef(null)
 
-  // useEffect(() => {
-  //   if (sticky) {
-  //     // filterDiv.current.classList.add("is-stuck")
-  //     console.log(sticky);
-  //     filterDiv.current.classList.add("is-stuck")
-  //   }
-  //   else {
-  //     console.log(sticky);
-  //     filterDiv.current.classList.remove("is-stuck")
-  //   }
-  // }, [])
-
-  // const handleInViewChange = (inView) => {
-  //   if (!inView) {
-  //     setSticky(true)
-  //   } else {
-  //     setSticky(false)
-  //   }
-  // };
-
   return (
-    // <InView onChange={handleInViewChange} rootMargin="-120px 0px 0px 0px">
     <div ref={filterDiv} className="filter-div">
       {links.map((item, i) => (
         <div
@@ -54,7 +29,6 @@ function Filter({ selectedFilter, setSelectedFilter, handleFilterRef }) {
         </div>
       ))}
     </div>
-    // </InView>
   );
 }
 

@@ -29,7 +29,17 @@ form p {
   margin-bottom: 6px;
 }
 
+.fake-link {
+  color: var(--light-green)
+}
+
+.fake-link:hover {
+  cursor: pointer;
+  color: var(--light-green)
+}
+
 .signin-modal {
+  cursor: default;
   z-index: 1040;
   position: fixed;
   width: 568px;
@@ -149,6 +159,7 @@ form p {
 }
 
 .backdrop {
+  cursor: default;
   position: fixed;
   z-index: 1040;
   top: 0;
@@ -158,4 +169,8 @@ form p {
   background-color: var(--dark-grey);
   opacity: 0;
   transition: opacity ease-out 150ms;
+}
+
+.hidden {
+  display: none;
 }

@@ -1,8 +1,5 @@
 // Import hooks.
-import { useEffect, useRef, useState } from "react";
-import { useInView } from "react-intersection-observer";
-
-
+import { useEffect, useState } from "react";
 
 // Import components.
 import Header from '../components/Header/Header'

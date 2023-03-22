@@ -1,15 +1,23 @@
 import './SignIn.css'
 import { useEffect, useRef, useState } from "react"
-import { signIn } from '../../api/user'
+import { signIn, signUp } from '../../api/user'
 
 
 export default function SignIn({ visibility, sendDataToParent }) {
+
+  // Our states.
   const [username, setUsername] = useState()
   const [password, setPassword] = useState()
   const [error, setError] = useState()
+  const [buttonValue, setButtonValue] = useState("Sign In")
+
+  // Our refs.
   const signInModal = useRef(null)
   const backDropRef = useRef(null)
+  const createAccount = useRef(null)
+  const signInButton = useRef(null)
 
+  // Our useEffects.
   useEffect(() => {
     setTimeout(() => {
       signInModal.current.style.opacity = '1'
@@ -17,13 +25,26 @@ export default function SignIn({ visibility, sendDataToParent }) {
     }, 1)
   }, [visibility])
 
+  useEffect(() => {
+    console.log('buttonChanged');
+  }, [buttonValue])
+
   async function handleSubmit(e) {
     e.preventDefault()
-    const res = await signIn(username, password)
-    if (res.login) {
-      window.location.reload()
+    if (signInButton.current.value === "Sign In") {
+      const res = await signIn(username, password)
+      if (res.login) {
+        window.location.reload()
+      } else {
+        setError(res.message)
+      }
     } else {
-      setError(res.message)
+      const res = await signUp(username, password)
+      if (res.login) {
+        window.location.reload()
+      } else {
+        setError(res.message)
+      }
     }
   }
 
@@ -35,10 +56,21 @@ export default function SignIn({ visibility, sendDataToParent }) {
     }, 300);
   }
 
+  function handleCreateAccount(e) {
+    setButtonValue("Sign Up")
+  }
+
+  function backDropClick(e) {
+    signInModal.current.style.opacity = '0'
+    backDropRef.current.style.opacity = '0'
+    setTimeout(() => {
+      sendDataToParent(false);
+    }, 300);
+  }
 
   return (
     <>
-      <div ref={backDropRef} className='backdrop'></div>
+      <div ref={backDropRef} className='backdrop' onClick={backDropClick}></div>
       <div ref={signInModal} className='signin-modal'>
         <div className="sign-in-modal-header">
           <span className='sign-in-modal-svg' onClick={handleClose}>
@@ -47,7 +79,7 @@ export default function SignIn({ visibility, sendDataToParent }) {
               <path d="m26 6-20 20" ></path>
             </svg>
           </span>
-          <h1>Log in or create an account</h1>
+          <h1>Log in or <span ref={createAccount} className="fake-link" onClick={handleCreateAccount}>create an account</span></h1>
         </div>
         <div className='signin-modal-input-area'>
           <h2>Welcome to dumpster.io</h2>
@@ -67,9 +99,9 @@ export default function SignIn({ visibility, sendDataToParent }) {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <p>We’ll call or text you to confirm your number. Standard message and data rates apply. <a href="https://www.youtube.com/watch?v=wvVWyJavZJs">Privacy Policy</a></p>
+            <p>We'll call or text you to confirm your number. Standard message and data rates apply. <a href="https://www.youtube.com/watch?v=wvVWyJavZJs">Privacy Policy</a></p>
             <p className='error-message'>{error}</p>
-            <input type="submit" id="submit" value="Sign In" />
+            <input ref={signInButton} type="submit" id="submit" value={buttonValue} />
           </form>
         </div>
       </div>

@@ -24,9 +24,10 @@ export async function signIn(username, password) {
 
 export async function signUp(username, password) {
   const res = await api.post('/auth/signup/', { username, password })
+  console.log(res);
   // If username already exists, make user choose a new username.
   if (res.data.usernameExists) {
-    return "User already exists."
+    return { login: false, message: "Username already exists. Please choose a new username." }
   }
   // If new user is created, store token in local storage and redirect user to homepage.
   localStorage.setItem(LOCALSTORAGE_KEY, res.data)
@@ -39,7 +40,7 @@ export async function getUser() {
 }
 
 
-export async function getUserProfile(id,body) {
+export async function getUserProfile(id, body) {
   const res = await api.patch(`/user/profile/${id}`, body)
   return res.data
 }

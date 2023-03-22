@@ -15,8 +15,6 @@
 }
 
 .is-stuck {
-  /* position: fixed;
-  top: 60px; */
   background: green;
 }
 
