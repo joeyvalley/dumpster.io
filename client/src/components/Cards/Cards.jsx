@@ -25,7 +25,7 @@ function Cards() {
     <div className="cards-flex">
       {items ?
         items.map(item => (
-          <div onClick={handleClick}>
+          <div onClick={handleClick} key={item._id}>
             <Card
               id={item._id}
               title={item.title}
