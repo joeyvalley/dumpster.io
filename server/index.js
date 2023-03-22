@@ -18,7 +18,7 @@ app.use(morgan('dev'))
 
 // Routes
 app.use('/api/auth/', authRouter)
-app.use('/api/new/', productRouter)
+app.use('/api/product/', productRouter)
 app.use('/api/user/', userRouter)
 
 app.listen(PORT, () => {

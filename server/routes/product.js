@@ -3,7 +3,7 @@ import * as controllers from '../controllers/product.js'
 
 const router = Router()
 
-router.post('/createProduct', controllers.createProduct)
+router.post('/create', controllers.createProduct)
 router.get('/', controllers.showProducts)
 router.get('/:id', controllers.showProduct)
 

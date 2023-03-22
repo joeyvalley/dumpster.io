@@ -55,10 +55,13 @@ export default function BasicMenu({ auth }) {
         </div>
         <Menu id="basic-menu" anchorEl={anchorEl} open={open} onClose={handleClose} MenuListProps={{ "aria-labelledby": "basic-button" }} sx={{ ".MuiPaper-root": { minWidth: "200px", borderRadius: "1rem", boxShadow: "0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%)" }, }}>
           <Link to={`user/profile/${userHash}`}>
-          <MenuItem className="menu-items" onClick={handleClose}> Profile</MenuItem>
+          <MenuItem className="menu-items" onClick={handleClose}>Profile</MenuItem>
           </Link>
-          <MenuItem className="menu-items" onClick={handleClose}> Create Post</MenuItem>
-          <MenuItem className="menu-items" onClick={handleLogout} >Logout</MenuItem>
+          <Link 
+          to="/create-product" 
+          className="menu-items" 
+          onClick={handleClose}>Create Post</Link>
+          <MenuItem className="menu-items" onClick={handleLogout}>Logout</MenuItem>
         </Menu>
       </div>
       {login && <SignIn visibility={true} sendDataToParent={receiveData}></SignIn>}

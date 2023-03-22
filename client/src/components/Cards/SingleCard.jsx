@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 function Card({ id, title, description, img, location, date }) {
 
-  const day = date.split("-")[1]
-  const month = date.split("-")[0]
-  const year = date.split("-")[2]
+  const day = date?.split("-")[1]
+  const month = date?.split("-")[0]
+  const year = date?.split("-")[2]
   const monthArr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
   function handleFav(event) {
