@@ -1,12 +1,12 @@
 import { token } from "morgan"
 import jwt from "jsonwebtoken"
 import User from "../models/user.js"
-import bcrypt from  "bcrypt"
+import bcrypt from "bcrypt"
 
-export default async function UserUpdateProfile(req, res) { 
+export default async function UserUpdateProfile(req, res) {
   const id = req.params.id
   const { username, password, name, email, avatar, favorites } = req.body
-  let codedPassword = password? await bcrypt.hash(password,5) : false 
+  let codedPassword = password ? await bcrypt.hash(password, 5) : false
   let decode = jwt.decode(id)
   let decodeId = decode.id
 
