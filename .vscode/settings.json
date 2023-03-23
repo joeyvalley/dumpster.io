@@ -1,2 +1,10 @@
 {
+  "rest-client.environmentVariables": {
+    "local": {
+      "host": "http://localhost:3000",
+    },
+    "vercel": {
+      "host": "https://dumpster-io-fy44.vercel.app",
+    }
+  }
 }
