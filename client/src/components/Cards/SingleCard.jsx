@@ -15,7 +15,7 @@ function Card({ id, title, description, img, location, date }) {
   return (
     <div className="card-box" key={id}>
       <Link to={`/item/${id}`}>
-        <img src={img} className="card-img" alt="" />
+        <img src={img ? img : "https://i.imgur.com/uueDD78.jpg"} className="card-img" alt="" />
       </Link>
       <div className="card-info-flex">
         <div className="top">
