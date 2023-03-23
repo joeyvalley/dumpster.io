@@ -1,8 +1,8 @@
 .showpage-container {
-  padding: 0px 40px;
+  padding: 16px 40px 0px 40px;
   display: grid;
   grid-template-columns: 3fr 2fr;
-  margin-bottom: 72px;
+  margin-bottom: 148px;
 }
 
 .item-info {
@@ -18,13 +18,13 @@
 
 .item-location-map {
   /* background: blue; */
-  padding-top: 19px;
+  padding-top: 35px;
   z-index: -1;
   border-radius: 6px;
   padding-left: 9px;
+  max-height: 400px;
 }
 
-.item-location-map img {
-  width: 100%;
-  border-radius: 6px;
+p {
+  padding: 8px 0px;
 }

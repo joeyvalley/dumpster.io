@@ -31,7 +31,6 @@ export default function Showpage() {
   return (
     <>
       <Header auth={auth} />
-      <Filter selectedFilter={selectedFilter} setSelectedFilter={setSelectedFilter} />
       <ShowpageCard props={searchResults} />
       <Footer />
     </>
