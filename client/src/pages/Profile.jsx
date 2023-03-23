@@ -1,5 +1,9 @@
 import { useState } from "react"
-import { getUserProfile, signUp } from '../api/user'
+import { getUserProfile } from '../api/user'
+import "./Profile.css"
+import Header from "../components/Header/Header"
+
+
 
 
 export default function Profile() {
@@ -13,57 +17,66 @@ export default function Profile() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-    let userData = {username,password,name,email,avatar,favorites}
-    const res = await getUserProfile(userHash, userData)
+    let userData = { username, password, name, email, avatar, favorites }
+
+    await getUserProfile(userHash, userData)
+
   
   }
   return (
-    <>
-      <form onSubmit={handleSubmit}>
+    <div>
+            <Header />
+
+    <div className="entire-form-page">
+        
+      <h1 className="account-settings-header">Account Settings</h1>
+      <form className="form-input" onSubmit={handleSubmit}>
         {/* <label htmlFor="username">Username: </label> */}
         <input
+          className="text-input"
           type="text"
-          id="username"
+          id="username_"
           placeholder="Username"
           onChange={(e) => setUsername(e.target.value)}
         />
-        <br />
         <input
+          className="text-input"
           type="password"
-          id="password"
+          id="password_"
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <br />
         <input
+          className="text-input"
           type="text"
           id="name"
           placeholder="name"
           onChange={(e) => setName(e.target.value)}
         />
-        <br />
         <input
+          className="text-input"
           type="email"
           id="email"
           placeholder="email"
           onChange={(e) => setEmail(e.target.value)}
         />
-        <br />
         <input
+          className="text-input"
           type="text"
           id="avatar"
           placeholder="avatar"
           onChange={(e) => setAvatar(e.target.value)}
         />
-        <br />
         <input
+          className="text-input"
           type="text"
           id="favorites"
           placeholder="favorites"
           onChange={(e) => setFavorites(e.target.value)}
         />
-        <input type="submit" id="submit" value="Update" />
+        <input className="text-input btn" type="submit" id="submit" value="Update" />
       </form>
-    </>
+      </div>
+      </div>
   )
 }
