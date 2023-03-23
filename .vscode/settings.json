@@ -4,7 +4,7 @@
       "host": "http://localhost:3000",
     },
     "vercel": {
-      "host": "https://dumpster-io-fy44.vercel.app",
+      "host": "https://dumpster-io-backend.vercel.app/",
     }
   }
 }
